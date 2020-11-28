@@ -7,7 +7,7 @@
 #  
 # ----------------------------------------------------
 
-import re,sys,commands,os
+import sys,os
 from datetime import datetime, timedelta
 
 ip = "" # Ip de la machine à superviser
@@ -23,24 +23,23 @@ nb_commentaire =nb_commentaire[9:]
 if nb_commentaire == "":
     nb_commentaire ="0"
     
-#CRITICAL = 2
-#WARNING = 1
-#OK = 0
+
 nb_max_ok = 5 # A modifier selon vos besoins
 nb_max_warning = 10 # A modifier selon vos besoins
-if int(nb_commentaire) < nb_max_ok :
+if int(nb_commentaire) <= nb_max_ok :
     print("OK:")
     print("Il y a eu "+str(nb_commentaire)+ " commentaires")
     print("ces 4 dernieres heures")
     sys.exit(0)
-elif int(nb_commentaire) >= nb_max_ok and int(nb_commentaire) <= nb_max_warning:
+
+elif int(nb_commentaire) >= nb_max_ok and int(nb_commentaire) < nb_max_warning:
     print("WARNING:")
     print("Il y a eu "+str(nb_commentaire)+ " commentaires")
     print("ces 4 dernieres heures")
     sys.exit(1)
+
 else:
     print("CRITICAL:")
     print("Il y a eu "+str(nb_commentaire)+ " commentaires")
     print("ces 4 dernieres heures")
     sys.exit(2)
-
