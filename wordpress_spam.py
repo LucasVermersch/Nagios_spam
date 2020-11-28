@@ -24,9 +24,9 @@ if nb_commentaire == "":
     nb_commentaire ="0"
     
 
-nb_max_ok = 5 # A modifier selon vos besoins
+nb_max_ok = 4 # A modifier selon vos besoins
 nb_max_warning = 10 # A modifier selon vos besoins
-if int(nb_commentaire) <= nb_max_ok :
+if int(nb_commentaire) < nb_max_ok :
     print("OK:")
     print("Il y a eu "+str(nb_commentaire)+ " commentaires")
     print("ces 4 dernieres heures")
